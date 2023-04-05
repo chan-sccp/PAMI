@@ -232,7 +232,7 @@ class ClientImpl implements IClient
         }
         $this->logger->debug(sprintf('recv <-- asteriskId: "%s"', $asteriskId));
 
-        $msg = new LoginAction($this->user, $this->pass);
+        $msg = new LoginAction($this->user, $this->pass, $this->eventMask);
         $this->send($msg, function (Response $response) use ($socketUri) {
             if (!$response->isSuccess()) {
                 throw new ClientException(
