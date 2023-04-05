@@ -159,10 +159,7 @@ abstract class Message
             if (strcasecmp($value, 'off') === 0 || strcasecmp($value, 'false') === 0 || strcasecmp($value, 'no') === 0) {
                 return (boolean)false;
             }
-            if (filter_var($value, FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE)) {
-                return (string)$value;
-            }
-            if (filter_var($value, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_NULL_ON_FAILURE)) {
+            if (filter_var($value, FILTER_UNSAFE_RAW, FILTER_NULL_ON_FAILURE)) {
                 return (string)htmlspecialchars($value, ENT_QUOTES);
             }
             throw new PAMIException("Incoming String is not sanitary. Skipping: '" . $value . "'\n");
