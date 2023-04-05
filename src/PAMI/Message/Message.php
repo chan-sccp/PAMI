@@ -62,13 +62,13 @@ abstract class Message
 
     /**
      * Metadata. Message variables (key/value).
-     * @var string[]
+     * @var array
      */
     protected $variables;
 
     /**
      * Metadata. Message "keys" i.e: Action: login
-     * @var string[]
+     * @var array
      */
     protected $keys;
 
@@ -102,7 +102,7 @@ abstract class Message
      * Adds a variable to this message.
      *
      * @param string $key   Variable name.
-     * @param string $value Variable value.
+     * @param mixed $value Variable value.
      *
      * @return void
      */
@@ -116,7 +116,7 @@ abstract class Message
      *
      * @param string $key Variable name.
      *
-     * @return string
+     * @return mixed
      */
     public function getVariable($key)
     {
@@ -131,7 +131,7 @@ abstract class Message
      *
      * @param string $value Key value.
      *
-     * @return typed and sanitized value
+     * @return mixed typed and sanitized value
      */
     protected function sanitizeInput($value)
     {
@@ -175,7 +175,7 @@ abstract class Message
      * Adds a variable to this message.
      *
      * @param string $key   Key name (i.e: Action).
-     * @param string $value Key value.
+     * @param mixed $value  Key value.
      *
      * @return void
      */
@@ -208,7 +208,7 @@ abstract class Message
      *
      * @param string $key Key name (i.e: Action).
      *
-     * @return string
+     * @return mixed
      */
     public function getKey($key)
     {
@@ -225,7 +225,7 @@ abstract class Message
      *
      * @param string $key Key name (i.e: Action).
      *
-     * @return string
+     * @return bool|null
      */
     public function getBoolKey($key)
     {
@@ -239,7 +239,7 @@ abstract class Message
     /**
      * Returns all keys for this message.
      *
-     * @return string[]
+     * @return array
      */
     public function getKeys()
     {
@@ -249,7 +249,7 @@ abstract class Message
     /**
      * Returns all variabels for this message.
      *
-     * @return string[]
+     * @return array
      */
     public function getVariables()
     {
